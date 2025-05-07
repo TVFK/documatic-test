@@ -1,4 +1,3 @@
-# oop_example.py
 class Animal:
     """Base class representing an animal."""
 
@@ -45,12 +44,11 @@ class Cat(Animal):
         """Simulate a cat purring."""
         return f"{self.name} purrs softly."
 
-# Дружественная функция (не метод класса, но работает с его данными)
+# Дружественная функция
 def describe_animal(animal: Animal) -> str:
     """Return a description of the animal (friend function)."""
     return f"This is {animal.name}, it says: '{animal.make_sound()}'"
 
-# Магические методы и оператор перегрузки
 class Vector:
     """Class representing a 2D vector."""
 
@@ -70,3 +68,37 @@ class Vector:
 
     def __str__(self) -> str:
         return f"Vector({self.x}, {self.y})"
+
+# ========== НОВЫЕ КЛАССЫ И МЕТОДЫ ========== #
+class Bird(Animal):
+    """Class representing a bird, inherits from Animal."""
+
+    def __init__(self, name: str, age: int, wingspan: float):
+        super().__init__(name, age)
+        self.wingspan = wingspan
+
+    def make_sound(self) -> str:
+        """Return the sound a bird makes."""
+        return "Chirp!"
+
+    def fly(self) -> str:
+        """Simulate flying."""
+        return f"{self.name} is flying with a wingspan of {self.wingspan} meters."
+
+class Rectangle:
+    """Class representing a rectangle."""
+
+    def __init__(self, width: float, height: float):
+        self.width = width
+        self.height = height
+
+    def area(self) -> float:
+        """Return the area of the rectangle."""
+        return self.width * self.height
+
+    def perimeter(self) -> float:
+        """Return the perimeter of the rectangle."""
+        return 2 * (self.width + self.height)
+
+    def __str__(self) -> str:
+        return f"Rectangle(width={self.width}, height={self.height})"
